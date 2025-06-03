@@ -35,7 +35,7 @@
   * Создаётся реестр с помощью `yandex_container_registry`.
   * Сборка и пуш Docker-образа происходит с помощью `null_resource` и `local-exec`.
 
-Реализация все модулей описана в [/modules]()
+Реализация всех модулей описана в [/modules](https://github.com/alex-bel31/terraform-docker-web/tree/main/modules)
 
 ## Cloud-init (user-data)
 
@@ -52,7 +52,7 @@
 * Клонирует [git-репозиторий](https://github.com/alex-bel31/conf-docker-nginx) с проектом.
 * Запускает [deploy-scripts.sh](https://github.com/alex-bel31/conf-docker-nginx/blob/main/deploy-scripts.sh) — скрипт развёртывания, содержащий запуск **docker compose**.
 
-Сам шаблон cloud-init лежит в [cloud-init/app.yaml.tpl]().
+Сам шаблон cloud-init лежит в [cloud-init/app.yaml.tpl](https://github.com/alex-bel31/terraform-docker-web/blob/main/cloud-init/app.yaml.tpl).
 
 ## Dockerfile
 
@@ -90,7 +90,7 @@ Dockerfile включает мультисборку:
 
 ## Terraform remote state
 
-* Используется для удаленного хранения state используется S3 бакет в Yandex Object Storage.
+* Для удаленного хранения state используется S3 бакет в Yandex Object Storage.
 * Блокировка состояний обеспечивается через совместимую с DynamoDB таблицу **tfstate-lock** в Yandex Cloud через docapi endpoint.
 * Все значения бэкенда вынесены в отдельный файл и подставляются через CLI при инициализации проекта:
 
