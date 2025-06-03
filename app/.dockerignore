@@ -1,0 +1,4 @@
+.env
+.dockerignore
+not_tested_main.py
+
